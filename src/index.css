@@ -4,7 +4,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 body {
-    background: '#f3f3f3',
+    background: #f3f3f3;
 }
 /***/
 .my-masonry-grid_column {
