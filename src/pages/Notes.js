@@ -8,7 +8,7 @@ export default function Notes() {
 
     useEffect(() => {
         async function fetchData() {
-            fetch(`http://localhost:5000/note`)
+            fetch(`https://ahmed-radi-note-app.herokuapp.com/note`)
             .then(res => res.json())
             .then(data => {
                 setNote(data)
@@ -18,7 +18,7 @@ export default function Notes() {
     }, [note.length]);
 
     const deleteNote = async (id) => {
-        await fetch(`http://localhost:5000/note/${id}`,{
+        await fetch(`https://ahmed-radi-note-app.herokuapp.com/note/${id}`,{
             method: 'DELETE',
         }).then(res => res.json())
         .then(_ => setNote(note.filter(selectedNote => id !== selectedNote._id)))

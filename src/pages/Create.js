@@ -31,7 +31,7 @@ export default function Create() {
         title === '' ? setTitleError(true) : setTitleError(false);
         note === '' ? setNoteError(true) : setNoteError(false);
         if(title && note && category) {
-            fetch(`http://localhost:5000/note`, {
+            fetch(`https://ahmed-radi-note-app.herokuapp.com/note`, {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({title, details: note, category,})
