@@ -8,19 +8,20 @@ export default function Notes() {
 
     useEffect(() => {
         async function fetchData() {
-            fetch(`http://localhost:8000/notes`)
+            fetch(`http://localhost:5000/note`)
             .then(res => res.json())
-            .then(data => setNote(data))
+            .then(data => {
+                setNote(data)
+            })
         }
         fetchData();
-    }, []);
+    }, [note.length]);
 
     const deleteNote = async (id) => {
-        await fetch(`http://localhost:8000/notes/${id}`,{
+        await fetch(`http://localhost:5000/note/${id}`,{
             method: 'DELETE',
-        });
-        const newNote = note.filter(selectedNote => id !== selectedNote.id);
-        setNote(newNote);
+        }).then(res => res.json())
+        .then(_ => setNote(note.filter(selectedNote => id !== selectedNote._id)))
     };
     const breakpoint = {
         default: 3,
@@ -46,7 +47,7 @@ export default function Notes() {
                 columnClassName="my-masonry-grid_column" // style for this class in index.css
             >
             {note && note.map(note => (
-                <div key={note.id} style={myMasonryGridColumnDIVs}>
+                <div key={note._id} style={myMasonryGridColumnDIVs}>
                     <NoteCard note={note} deleteNote={deleteNote} />
                 </div>
             ))}

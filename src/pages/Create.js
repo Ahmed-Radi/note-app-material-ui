@@ -31,7 +31,7 @@ export default function Create() {
         title === '' ? setTitleError(true) : setTitleError(false);
         note === '' ? setNoteError(true) : setNoteError(false);
         if(title && note && category) {
-            fetch(`http://localhost:8000/notes`, {
+            fetch(`http://localhost:5000/note`, {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({title, details: note, category,})
@@ -76,7 +76,7 @@ export default function Create() {
                     margin: '20px 0',
                 }}>
                     <FormLabel>Note category</FormLabel>
-                    <RadioGroup onChange={(e) => setCategory(e.target.value)}>
+                    <RadioGroup onChange={(e) => setCategory(e.target.value)} sx={{textTransform: 'capitalize'}}>
                         <FormControlLabel value="money" control={<Radio />}  label="money" />
                         <FormControlLabel value="todo" control={<Radio />}  label="todo" />
                         <FormControlLabel value="reminders" control={<Radio />}  label="reminders" />

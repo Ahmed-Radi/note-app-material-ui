@@ -31,7 +31,7 @@ function NoteCard({ note, deleteNote }) {
                         <Avatar style={avatar}>{note.category[0].toUpperCase()}</Avatar>
                     }
                     action={
-                        <IconButton onClick={() => deleteNote(note.id)}>
+                        <IconButton onClick={() => deleteNote(note._id)}>
                             <DeleteOutline />
                         </IconButton>
                     }

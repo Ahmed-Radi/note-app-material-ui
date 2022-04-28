@@ -21,6 +21,7 @@ function Layout({ children }) {
     const pageStyle = {
         width: '100%',
         padding: '20px',
+        overflow: 'hidden',
     }
     const drawer = {
         width: drawerWidth,
